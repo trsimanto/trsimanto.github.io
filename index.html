@@ -1,1012 +1,654 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Towhidur Rahman - Lead Mobile Developer</title>
-  <meta content="Towhidur Rahman, Lead Mobile Developer from Dhaka, Bangladesh. 9+ years building Android, iOS and Flutter apps: VoIP and real-time messaging, fintech, healthtech, food delivery and e-commerce. 70+ apps shipped. Open to remote roles." name="description">
-  <meta content="Lead Mobile Developer, Android, iOS, Flutter, Kotlin, Swift, SwiftUI, Kotlin Multiplatform, VoIP, WebRTC, SIP, XMPP, Towhidur Rahman" name="keywords">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Towhidur Rahman · Lead Mobile Developer</title>
+<meta name="description" content="Towhidur Rahman, Lead Mobile Developer in Dhaka, Bangladesh. 9+ years building Android, iOS and Flutter apps: VoIP and real-time messaging, fintech, healthtech, food delivery and e-commerce. 70+ apps shipped. Open to remote roles.">
+<meta property="og:title" content="Towhidur Rahman · Lead Mobile Developer">
+<meta property="og:description" content="9+ years building Android, iOS and Flutter apps. VoIP & real-time, fintech, healthtech, food delivery. 70+ apps shipped.">
+<meta property="og:image" content="https://trsimanto.github.io/assets/img/my-profile-img.jpg">
+<meta property="og:url" content="https://trsimanto.github.io/">
+<link rel="icon" href="assets/img/favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#3b82f6; --accent-2:#06b6d4; --accent-soft:rgba(59,130,246,.14); --ok:#22c55e;
+  --radius:16px; --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#0a0b0d; --panel:#111317; --panel-2:#15181d; --line:#22262d; --text:#e8eaed; --muted:#9aa1ab; --chip:#1a1e24;
+}
+[data-theme="light"]{
+  --bg:#f6f7f9; --panel:#ffffff; --panel-2:#f1f3f6; --line:#e3e6eb; --text:#14171c; --muted:#5d6672; --chip:#eef1f5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{width:18px;height:18px;flex:none}
+.layout{display:grid;grid-template-columns:240px minmax(0,680px) 330px;justify-content:center;min-height:100vh}
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Towhidur Rahman - Lead Mobile Developer">
-  <meta property="og:description" content="9+ years building Android, iOS and Flutter apps. VoIP & real-time, fintech, healthtech, food delivery. 70+ apps shipped.">
-  <meta property="og:image" content="https://trsimanto.github.io/assets/img/my-profile-img.jpg">
-  <meta property="og:url" content="https://trsimanto.github.io/">
-  <meta property="og:type" content="website">
+/* left sidebar */
+.side{position:sticky;top:0;height:100vh;padding:22px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;margin:0 8px 26px}
+.brand .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;font-size:17px}
+.brand small{color:var(--muted);font-weight:500;font-size:13px}
+.nav a{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:12px;color:var(--text);font-weight:500;margin-bottom:2px;transition:background .15s}
+.nav a:hover,.nav a.active{background:var(--panel-2)}
+.nav a.active{font-weight:700}
+.nav .sep{height:1px;background:var(--line);margin:14px 8px}
+.side-foot{margin-top:auto;padding:0 8px}
+.icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--text);display:inline-grid;place-items:center;cursor:pointer}
+.side-foot p{color:var(--muted);font-size:12.5px;margin-top:14px}
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.jpg" rel="icon">
-  <link href="assets/img/favicon.jpg" rel="apple-touch-icon">
+/* center */
+main{border-right:1px solid var(--line);min-width:0}
+.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:12px 20px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.topbar .who b{display:block;font-size:15px;line-height:1.2}
+.topbar .who span{font-size:12.5px;color:var(--muted)}
+.topbar .actions{margin-left:auto;display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),#2563eb);border-color:transparent;color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+.cover{height:170px;background:radial-gradient(120% 140% at 70% 10%,rgba(6,182,212,.55),transparent 55%),radial-gradient(100% 120% at 10% 90%,rgba(59,130,246,.6),transparent 60%),#0d1a2b}
+.profile{text-align:center;padding:0 24px 26px;border-bottom:1px solid var(--line)}
+.avatar{width:112px;height:112px;border-radius:50%;object-fit:cover;border:4px solid var(--bg);margin-top:-56px;box-shadow:0 0 0 2px var(--accent)}
+.profile h1{font-size:26px;font-weight:800;margin-top:10px;letter-spacing:-.3px}
+.tagline{color:var(--muted);margin-top:2px}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:5px 12px;border-radius:999px;background:rgba(34,197,94,.1);color:#4ade80;font-size:13px;font-weight:600;border:1px solid rgba(34,197,94,.25)}
+[data-theme="light"] .status{color:#15803d}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(34,197,94,.2);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;color:var(--muted);font-size:14px;margin-top:14px}
+.meta span{display:inline-flex;align-items:center;gap:6px}
+.meta b{color:var(--text);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:16px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:var(--chip);border:1px solid var(--line);font-size:13px;font-weight:500}
+.chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+.tabs{display:flex;border-bottom:1px solid var(--line);position:sticky;top:61px;z-index:4;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px)}
+.tabs a{flex:1;text-align:center;padding:13px 0;font-weight:600;font-size:14px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;border-bottom:2px solid transparent}
+.tabs a:hover{color:var(--text)}
+.tabs a.on{color:var(--text);border-color:var(--accent)}
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+section{padding:26px 24px;border-bottom:1px solid var(--line);scroll-margin-top:110px}
+h2{display:flex;align-items:center;gap:9px;font-size:19px;font-weight:700;margin-bottom:14px}
+h2 svg{color:var(--accent)}
+.lead p+p{margin-top:12px}
+.lead p{color:color-mix(in srgb,var(--text) 88%,var(--muted))}
+.more{color:var(--accent);font-weight:600;cursor:pointer;background:none;border:0;font:inherit;margin-top:6px}
+.collapsed .extra{display:none}
 
-  <style>
-    /* Skills as tag groups */
-    .skill-group { background: var(--surface-color); border-radius: 8px; padding: 20px 22px; height: 100%; box-shadow: 0 0 18px rgba(0, 0, 0, 0.06); }
-    .skill-group h4 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
-    .skill-group h4 i { color: var(--accent-color); margin-right: 6px; }
-    .tag { display: inline-block; font-size: 13px; padding: 4px 10px; margin: 0 6px 8px 0; border-radius: 20px; background: color-mix(in srgb, var(--accent-color), transparent 88%); color: var(--heading-color); }
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.kicker{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:13px}
+.kicker svg{width:15px;height:15px}
+.clock-card{background:linear-gradient(160deg,rgba(59,130,246,.22),var(--panel) 65%)}
+.clock-card h3,.work-card h3{font-size:16px;margin-top:4px}
+.clock{font-size:38px;font-weight:800;letter-spacing:-1px;margin-top:14px;line-height:1}
+.clock small{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:0;margin-left:6px}
+.daynight{color:var(--muted);font-size:13px;margin-top:8px}
+.work-card p{color:var(--muted);font-size:13.5px;margin-top:6px}
+.checks{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.checks span{font-size:12.5px;padding:3px 9px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2)}
+.checks span::before{content:"✓ ";color:var(--ok)}
 
-    /* Project cards (no screenshots) */
-    .project-card { background: var(--surface-color); border-radius: 10px; overflow: hidden; height: 100%; display: flex; flex-direction: column; box-shadow: 0 0 18px rgba(0, 0, 0, 0.07); transition: transform .25s, box-shadow .25s; }
-    .project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12); }
-    .project-card .pc-head { padding: 22px 22px 18px; color: #fff; display: flex; align-items: center; gap: 14px; }
-    .project-card .pc-head i { font-size: 30px; }
-    .project-card .pc-head h4 { color: #fff; font-size: 19px; font-weight: 700; margin: 0; }
-    .project-card .pc-head small { display: block; opacity: .9; font-size: 13px; }
-    .project-card .pc-body { padding: 18px 22px 20px; display: flex; flex-direction: column; flex: 1; }
-    .project-card .pc-body p { font-size: 14px; margin-bottom: 14px; flex: 1; }
-    .project-card .pc-link { font-size: 14px; font-weight: 600; }
-    .project-card .pc-link i { margin-left: 4px; }
-    .bg-oss { background: linear-gradient(135deg, #24292f, #57606a); }
-    .bg-voip { background: linear-gradient(135deg, #0f766e, #14b8a6); }
-    .bg-food { background: linear-gradient(135deg, #c2410c, #f97316); }
-    .bg-health { background: linear-gradient(135deg, #0369a1, #38bdf8); }
-    .bg-fintech { background: linear-gradient(135deg, #4338ca, #818cf8); }
-    .bg-faith { background: linear-gradient(135deg, #166534, #4ade80); }
-    .bg-edu { background: linear-gradient(135deg, #a16207, #facc15); }
-    .bg-social { background: linear-gradient(135deg, #9d174d, #f472b6); }
-    .bg-shop { background: linear-gradient(135deg, #7c2d12, #d97706); }
-    .bg-gov { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
-    .bg-sleep { background: linear-gradient(135deg, #312e81, #6366f1); }
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{text-align:center;padding:16px 8px}
+.stat b{display:block;font-size:26px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.stat span{color:var(--muted);font-size:12.5px;line-height:1.35;display:block;margin-top:2px}
 
-    /* Testimonials without photos */
-    .testimonial-avatar { width: 90px; height: 90px; border-radius: 50%; border: 6px solid var(--background-color); background: var(--accent-color); color: #fff; font-size: 28px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: -40px auto 0 auto; position: relative; z-index: 2; }
+.highlights{list-style:none;display:grid;gap:10px}
+.highlights li{display:flex;gap:12px;align-items:flex-start;padding:14px 16px}
+.highlights .ic{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.highlights b{display:block;font-size:14.5px}
+.highlights span{color:var(--muted);font-size:13.5px}
 
-    .stats .stats-item .stat-num { color: var(--heading-color); font-size: 48px; line-height: 40px; display: block; font-weight: 700; margin-left: 60px; }
-    .isotope-container .portfolio-item { display: flex; }
-    .resume .resume-item h5 { margin-right: 6px; }
-    .resume .resume-item .meta { font-size: 14px; opacity: .8; }
-  </style>
+/* experience */
+.timeline{position:relative}
+.job{display:grid;grid-template-columns:44px 1fr;gap:14px;padding-bottom:22px;position:relative}
+.job:not(:last-child)::before{content:"";position:absolute;left:21px;top:46px;bottom:0;width:2px;background:var(--line)}
+.logo-c{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:15px}
+.job h3{font-size:16px;font-weight:700;color:var(--text);line-height:1.35}
+.job .co{font-weight:600;color:var(--accent)}
+.job .when{color:var(--muted);font-size:13px;margin-top:2px}
+.job p.sum{margin-top:8px;font-size:14px}
+.job ul{margin:8px 0 0 18px;font-size:14px;color:color-mix(in srgb,var(--text) 85%,var(--muted))}
+.job li{margin-top:4px}
+.job li b{color:var(--text)}
 
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.filters button{font:inherit;font-size:13px;font-weight:600;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.filters button.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.proj{display:flex;flex-direction:column;padding:0;overflow:hidden;transition:transform .15s,border-color .15s}
+.proj:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+.proj .ph{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.proj .pi{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;font-size:19px;flex:none}
+.proj h3{font-size:15px;font-weight:700;line-height:1.3}
+.proj small{color:var(--muted);font-size:12.5px}
+.proj p{padding:0 16px;font-size:13.5px;color:color-mix(in srgb,var(--text) 82%,var(--muted));flex:1}
+.proj .pf{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;font-size:12.5px;color:var(--muted)}
+.proj .pf a{color:var(--accent);font-weight:600}
+.proj.hide,.proj.fold{display:none}
+.showall{display:block;margin:14px auto 0;}
+
+.skillgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.skillgrid h3{font-size:14px;font-weight:700;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.skillgrid .chips{justify-content:flex-start;margin-top:0}
+
+.recs{display:grid;gap:12px}
+.rec blockquote{font-size:14.5px;color:color-mix(in srgb,var(--text) 90%,var(--muted))}
+.rec blockquote::before{content:"“";font-size:34px;line-height:0;vertical-align:-12px;color:var(--accent);margin-right:4px;font-weight:800}
+.rec .by{display:flex;align-items:center;gap:10px;margin-top:12px}
+.rec .ini{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.rec .by b{display:block;font-size:14px;line-height:1.25}
+.rec .by span{color:var(--muted);font-size:12.5px}
+
+.edu ul{margin:10px 0 0 18px;font-size:14px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.contact-grid a{display:flex;align-items:center;gap:12px}
+.contact-grid a span{display:block;font-size:12.5px;color:var(--muted)}
+.contact-grid a b{font-size:14px;word-break:break-all}
+form.card{margin-top:12px;display:grid;gap:10px}
+input,textarea{font:inherit;font-size:14px;width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:var(--panel-2);color:var(--text);outline:none}
+input:focus,textarea:focus{border-color:var(--accent)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+footer{padding:22px 24px 90px;color:var(--muted);font-size:13px;text-align:center}
+
+/* right rail */
+.rail{position:sticky;top:0;height:100vh;overflow:auto;padding:18px 18px 30px;display:flex;flex-direction:column;gap:14px}
+.open-card{background:linear-gradient(160deg,rgba(34,197,94,.14),var(--panel) 60%)}
+.open-card h3,.rail h3{font-size:15px;display:flex;align-items:center;gap:8px}
+.open-card p{color:var(--muted);font-size:13.5px;margin:8px 0 14px}
+.links a{display:flex;align-items:center;gap:12px;padding:9px 4px;border-radius:10px}
+.links a:hover{background:var(--panel-2)}
+.links .li{width:34px;height:34px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center}
+.links b{display:block;font-size:14px;line-height:1.2}
+.links span{font-size:12.5px;color:var(--muted)}
+.links .arr{margin-left:auto;color:var(--muted)}
+.now p{color:var(--muted);font-size:13.5px;margin-top:6px}
+
+/* mobile */
+.mbar{display:none}
+@media (max-width:1180px){.layout{grid-template-columns:220px minmax(0,680px)}.rail{display:none}.rail-inline{display:block!important}}
+@media (max-width:820px){
+  .layout{grid-template-columns:1fr}
+  .side{display:none}
+  main{border-right:0}
+  .mbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line);justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom))}
+  .mbar a,.mbar button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);background:none;border:0;font-family:inherit;cursor:pointer}
+  .projects,.skillgrid,.grid2,.contact-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .topbar .btn span.t{display:none}
+  .topbar .who span{display:none}
+  .topbar .who b{font-size:14px}
+  section{padding:22px 16px}
+  .tabs{top:61px}
+}
+.rail-inline{display:none}
+</style>
 </head>
+<body>
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+  <symbol id="i-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.4 4.7 18.4 5 18.4 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></symbol>
+</svg>
 
-<body class="index-page">
+<div class="layout">
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+<!-- LEFT -->
+<aside class="side">
+  <a href="#profile" class="brand"><span class="logo">T</span><span>Towhid<small> · portfolio</small></span></a>
+  <nav class="nav" id="nav">
+    <a href="#profile" class="active"><svg><use href="#i-user"/></svg>Profile</a>
+    <a href="#experience"><svg><use href="#i-brief"/></svg>Experience</a>
+    <a href="#projects"><svg><use href="#i-grid"/></svg>Projects</a>
+    <a href="#opensource"><svg><use href="#i-code"/></svg>Open source</a>
+    <a href="#skills"><svg><use href="#i-tools"/></svg>Skills</a>
+    <a href="#recommendations"><svg><use href="#i-quote"/></svg>Recommendations</a>
+    <a href="#contact"><svg><use href="#i-mail"/></svg>Contact</a>
+    <div class="sep"></div>
+    <a href="assets/Towhidur_Rahman_CV.pdf" download><svg><use href="#i-file"/></svg>Download CV</a>
+  </nav>
+  <div class="side-foot">
+    <button class="icon-btn theme-toggle" aria-label="Toggle theme"><svg><use href="#i-sun"/></svg></button>
+    <p>© 2026 Towhidur Rahman</p>
+  </div>
+</aside>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="Towhidur Rahman" class="img-fluid rounded-circle">
+<!-- CENTER -->
+<main>
+  <div class="topbar">
+    <img src="assets/img/my-profile-img.jpg" alt="Towhidur Rahman">
+    <div class="who"><b>Towhidur Rahman</b><span>Lead Mobile Developer</span></div>
+    <div class="actions">
+      <a class="btn" href="assets/Towhidur_Rahman_CV.pdf" download><svg><use href="#i-file"/></svg><span class="t">CV</span></a>
+      <a class="btn primary" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <div id="profile">
+    <div class="cover"></div>
+    <div class="profile">
+      <img class="avatar" src="assets/img/my-profile-img.jpg" alt="Towhidur Rahman">
+      <h1>Towhidur Rahman</h1>
+      <p class="tagline">I build and lead mobile apps people rely on.</p>
+      <span class="status"><span class="dot"></span>Open to remote Lead / Senior Mobile roles</span>
+      <div class="meta">
+        <span><svg><use href="#i-brief"/></svg>Lead Mobile Developer at <b>InterCloud</b></span>
+        <span><svg><use href="#i-pin"/></svg>Dhaka, Bangladesh · <b class="now-time">--:--</b></span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#02569b"></i>Flutter</span>
+        <span class="chip"><i style="background:#7f52ff"></i>Kotlin</span>
+        <span class="chip"><i style="background:#3ddc84"></i>Jetpack Compose</span>
+        <span class="chip"><i style="background:#f05138"></i>Swift</span>
+        <span class="chip"><i style="background:#0a84ff"></i>SwiftUI</span>
+        <span class="chip"><i style="background:#a97bff"></i>Kotlin Multiplatform</span>
+        <span class="chip"><i style="background:#61dafb"></i>React Native</span>
+        <span class="chip"><i style="background:#22c55e"></i>WebRTC</span>
+        <span class="chip"><i style="background:#f59e0b"></i>SIP</span>
+        <span class="chip"><i style="background:#ec4899"></i>XMPP</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <a href="#about" class="on">About</a>
+    <a href="#experience">Resume</a>
+    <a href="#projects">Work</a>
+  </nav>
+
+  <section id="about">
+    <h2><svg><use href="#i-user"/></svg>About</h2>
+    <div class="lead collapsed" id="aboutText">
+      <p>I'm a Lead Mobile Developer with 9+ years building native Android, native iOS and Flutter apps end to end: architecture, API planning, testing, CI/CD, store release and production monitoring. I've shipped 70+ apps and spent 6+ years working remotely with teams in Romania, Finland, Estonia, Japan and the US.</p>
+      <p>Right now I lead mobile engineering for a VoIP and messaging app at InterCloud, writing most of the native Android and iOS code and owning API requirements and planning. <span class="extra">Before that I shipped 9 food-delivery apps in 6 months while managing a 20+ person cross-functional team, built a 200+ screen healthtech app as the sole developer, and led a fintech payments platform from zero to MVP in 3 months.</span></p>
+      <p class="extra">My work spans telecom, fintech, healthtech, food delivery, e-commerce, education and government systems. I have mentored 30+ developers and run 30+ technical interviews, and I care about reliability, clarity and respect for the people who use what I build.</p>
+    </div>
+    <button class="more" id="moreBtn">Read more ⌄</button>
+
+    <div class="grid2">
+      <div class="card clock-card">
+        <div class="kicker"><svg><use href="#i-pin"/></svg>Based in</div>
+        <h3>Dhaka, Bangladesh</h3>
+        <div class="clock"><span class="now-time">--:--</span><small>GMT+6</small></div>
+        <div class="daynight" id="daynight"></div>
+      </div>
+      <div class="card work-card">
+        <div class="kicker"><svg><use href="#i-globe"/></svg>Works</div>
+        <h3>Remote-first</h3>
+        <p>Comfortable working with teams in any time zone, with an easy overlap for Europe and the UK.</p>
+        <div class="checks"><span>Remote</span><span>Async-friendly</span><span>EU hours</span><span>UK hours</span><span>US overlap</span><span>Hybrid in Dhaka</span></div>
+      </div>
     </div>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Towhidur Rahman</h1>
-    </a>
+    <div class="stats" style="margin-top:12px">
+      <div class="card stat"><b>9+</b><span>years in mobile</span></div>
+      <div class="card stat"><b>70+</b><span>apps shipped</span></div>
+      <div class="card stat"><b>500K+</b><span>downloads</span></div>
+      <div class="card stat"><b>30+</b><span>developers mentored</span></div>
+    </div>
+  </section>
 
-    <div class="social-links text-center">
-      <a href="https://github.com/trsimanto" class="github" target="_blank" rel="noopener" title="GitHub"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com/in/trsimanto" class="linkedin" target="_blank" rel="noopener" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-      <a href="mailto:simanto14feb@gmail.com" class="google-plus" title="Email"><i class="bi bi-envelope"></i></a>
+  <section id="highlights">
+    <h2><svg><use href="#i-star"/></svg>Highlights</h2>
+    <ul class="highlights">
+      <li class="card"><span class="ic">📞</span><div><b>VoIP &amp; messaging app, MVP in 3 months</b><span>Voice, video and PSTN calling with WebRTC and SIP, CallKit and ConnectionService. Call drops under 1%, 99.19% crash-free.</span></div></li>
+      <li class="card"><span class="ic">🍔</span><div><b>9 food-delivery apps in 6 months</b><span>Customer, restaurant, rider and hub apps while managing a 20+ person cross-functional team.</span></div></li>
+      <li class="card"><span class="ic">🏥</span><div><b>200+ screens, solo, in 6 months</b><span>A complete clinical healthtech app in Flutter across 20+ modules.</span></div></li>
+      <li class="card"><span class="ic">💳</span><div><b>Fintech payments platform</b><span>Tech Lead for a team of 8: architecture, database, APIs, Stripe and PayPal, AWS, launched in 3 months.</span></div></li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2><svg><use href="#i-brief"/></svg>Experience</h2>
+    <div class="timeline">
+
+      <div class="job"><div class="logo-c" style="background:#0f766e">IC</div><div>
+        <h3>Senior Software Engineer (Lead Mobile Developer)</h3>
+        <div><span class="co">InterCloud</span> · Dhaka · On-site</div>
+        <div class="when">May 2025 – Present</div>
+        <ul>
+          <li>Lead mobile engineer for a next-generation VoIP and messaging app. Wrote about 90% of the codebase across native Android (Kotlin) and iOS (SwiftUI).</li>
+          <li>Delivered the MVP in 3 months: voice, video and PSTN calling (WebRTC, SIP) with ConnectionService, CallKit and PushKit.</li>
+          <li>Kept call drops under 1% with automatic reconnection, improved audio quality 2x with noise cancellation, and maintain a 99.19% crash-free rate.</li>
+          <li>Built a full XMPP messaging layer: group chat, history, read and delivery receipts, push notifications and privacy controls.</li>
+        </ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#0369a1">MS</div><div>
+        <h3>Senior Mobile Developer</h3>
+        <div><span class="co">MediStack</span> · Contract · Remote</div>
+        <div class="when">Sep 2025 – Mar 2026</div>
+        <ul>
+          <li>Sole mobile developer: built the complete clinical app for Android and iOS in Flutter in 6 months, 200+ screens across 20+ modules.</li>
+          <li>Owned architecture, UI, API integration and state management end to end.</li>
+        </ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#c2410c">WN</div><div>
+        <h3>Flutter Developer (Mobile Team Lead)</h3>
+        <div><span class="co">We Are The Nexts</span> · Full-time · Remote</div>
+        <div class="when">Sep 2024 – May 2025</div>
+        <ul>
+          <li>Led mobile development of a multi-city food delivery platform with 500+ restaurant partners.</li>
+          <li>Shipped 9 apps in 6 months, including an MDM-provisioned system app for hub devices with receipt printing.</li>
+          <li>Managed a cross-functional team of 20+, directly leading up to 9 engineers.</li>
+        </ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#4338ca">RV</div><div>
+        <h3>Technical Lead</h3>
+        <div><span class="co">Revorium</span> · Tallinn, Estonia · Remote</div>
+        <div class="when">Jan 2024 – Jun 2024</div>
+        <ul>
+          <li>Led a team of 8 and worked with the CEO and CTO on direction and delivery. Launched a cross-border payment platform for freelancers in 3 months.</li>
+          <li>Designed the architecture, database schema and APIs; integrated Stripe and PayPal; managed AWS and Codemagic CI/CD.</li>
+        </ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#b91c1c">RE</div><div>
+        <h3>Senior Software Engineer (Lead Mobile Developer)</h3>
+        <div><span class="co">REEA Digital Limited</span> · Dhaka · Hybrid</div>
+        <div class="when">Nov 2022 – Oct 2024</div>
+        <p class="sum">Led mobile development on 16 client projects for European clients with REEA's team in Târgu Mureș, Romania, across Android, iOS, Flutter and React Native.</p>
+        <ul>
+          <li><b>QSS:</b> real-time KPI tracker for a McDonald's franchise operator in Austria.</li>
+          <li><b>Sleep Tank, Sirocco, MyEvent, Cartoon TV Plus, Licitatia, Sanasoft, AM Pontaj, Livrapp</b> and more.</li>
+        </ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#a16207">AT</div><div>
+        <h3>Lead Mobile Developer</h3>
+        <div><span class="co">AriSaf Tech</span> · Yokohama, Japan · Remote</div>
+        <div class="when">Sep 2022 – Feb 2023</div>
+        <ul><li>Built e-ONIGIRI英単語 in Flutter for Iizuna Shoten: 10,000 words, quizzes, placement tests and subscriptions.</li></ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#be185d">GS</div><div>
+        <h3>Mobile Developer → Senior → Lead Mobile Developer</h3>
+        <div><span class="co">Glostars</span> · Helsinki, Finland · Part-time, Remote</div>
+        <div class="when">Sep 2020 – Feb 2023</div>
+        <ul><li>Helped launch a photo-contest social app (50K+ downloads). Made startup 10x faster, rebuilt the feed for 400,000 records, and led the mobile team near the end.</li></ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#166534">BY</div><div>
+        <h3>Senior Software Engineer (Mobile)</h3>
+        <div><span class="co">BYSL Global Technology Group</span> · Dhaka</div>
+        <div class="when">Feb 2022 – Aug 2022</div>
+        <ul><li>Built Waqt Al Salaah (100K+ downloads, 4.7★), BhaloNaki, Quran Translation and Quran Mushaf; mentored junior developers.</li></ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#1e3a8a">SS</div><div>
+        <h3>Junior → Senior Android Developer</h3>
+        <div><span class="co">Simec System Ltd.</span> · Dhaka</div>
+        <div class="when">Jul 2019 – Jan 2022</div>
+        <ul><li>Built Chaad Ride, government apps (HRMS, DSS, Bangladesh Tourism Board) and 大東建託協力会 for Daito Kentaku, Japan.</li></ul>
+      </div></div>
+
+      <div class="job"><div class="logo-c" style="background:#475569">TL</div><div>
+        <h3>Junior Android Developer</h3>
+        <div><span class="co">Teamz Lab Ltd (formerly Binary-Geek)</span> · Dhaka</div>
+        <div class="when">Aug 2017 – Jun 2019</div>
+        <ul><li>Built features for Hazira Khata, a school-management app now at 100K+ downloads, and Apon, a blood-donor directory.</li></ul>
+      </div></div>
+
     </div>
 
-    <nav id="navmenu" class="navmenu">
+    <div class="card edu" style="margin-top:4px">
+      <div class="kicker"><svg><use href="#i-cap"/></svg>Education &amp; teaching</div>
+      <h3 style="font-size:15.5px;margin-top:4px">B.Sc. in Computer Science and Engineering · Northern University Bangladesh (2016 – 2019)</h3>
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#skills"><i class="bi bi-tools navicon"></i> Skills</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Experience</a></li>
-        <li><a href="#portfolio"><i class="bi bi-phone navicon"></i> Projects</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li><a href="#testimonials"><i class="bi bi-chat-quote navicon"></i> Recommendations</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li>Champion, Programming Contest, NUB CSE Fest 2019 · Runner-up 2017</li>
+        <li>Champion, Project Showcase: Hazira Khata (NUB 2019), Apon (UITS 2018), MiniDoctor (NUB 2017)</li>
+        <li>Participated in ICPC and NCPC</li>
+        <li>Android trainer at NUB Computer Club (2020 – 2021) · Udemy course on Android Room Database (2019)</li>
       </ul>
-    </nav>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Towhidur Rahman</h2>
-        <p>I'm <span class="typed" data-typed-items="a Lead Mobile Developer, an Android Developer, an iOS Developer, a Flutter Developer, a VoIP &amp; Real-time Engineer">a Lead Mobile Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>I build and lead native Android, native iOS and Flutter apps end to end: architecture, API planning, testing, CI/CD, store release and production monitoring. 9+ years in mobile, 70+ apps shipped, and 6+ years working remotely with teams in Romania, Finland, Estonia, Japan and the US.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="Towhidur Rahman">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>Lead Mobile Developer &middot; Flutter &middot; Android &middot; iOS &middot; VoIP &amp; Real-time</h2>
-            <p class="fst-italic py-3">
-              I care about reliability, clarity, and respect for the people who use what I build.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>trsimanto.github.io</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+8801951786930</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Dhaka, Bangladesh</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>B.Sc. in CSE</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>simanto14feb@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Open to:</strong> <span>Remote &middot; Hybrid &middot; On-site</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              Right now I lead mobile engineering for a VoIP and messaging app built for a 5.4M-user platform, writing most of the native Android and iOS code and owning API requirements and planning. Before that I shipped 9 food-delivery apps in 6 months while managing a 20+ person cross-functional team, built a 200+ screen healthtech app as the sole developer, and led a fintech payments platform from zero to MVP in 3 months.
-            </p>
-            <p>
-              My work spans telecom, fintech, healthtech, food delivery, e-commerce, education and government systems. I have mentored 30+ developers and conducted 30+ technical interviews, and I enjoy turning messy requirements into apps that people actually rely on.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-award"></i>
-              <span class="stat-num">9+</span>
-              <p><strong>Years</strong> <span>in mobile development</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-phone"></i>
-              <span class="stat-num">70+</span>
-              <p><strong>Apps shipped</strong> <span>Android, iOS and Flutter</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-cloud-download"></i>
-              <span class="stat-num">500K+</span>
-              <p><strong>Downloads</strong> <span>across published apps</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span class="stat-num">30+</span>
-              <p><strong>Developers mentored</strong> <span>and 30+ interviews conducted</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>The tools I use every day to design, build, test and ship mobile apps.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="skill-group">
-              <h4><i class="bi bi-android2"></i>Android</h4>
-              <span class="tag">Kotlin</span><span class="tag">Java</span><span class="tag">Jetpack Compose</span><span class="tag">Coroutines &amp; Flow</span><span class="tag">Hilt</span><span class="tag">Room</span><span class="tag">MVVM / MVI</span><span class="tag">ConnectionService</span>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="skill-group">
-              <h4><i class="bi bi-apple"></i>iOS</h4>
-              <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">UIKit</span><span class="tag">Combine</span><span class="tag">async/await</span><span class="tag">CallKit</span><span class="tag">PushKit</span>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="skill-group">
-              <h4><i class="bi bi-layers"></i>Cross-platform</h4>
-              <span class="tag">Flutter &amp; Dart</span><span class="tag">Bloc</span><span class="tag">Riverpod</span><span class="tag">Provider</span><span class="tag">GetX</span><span class="tag">Kotlin Multiplatform</span><span class="tag">React Native</span>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="skill-group">
-              <h4><i class="bi bi-broadcast"></i>Real-time</h4>
-              <span class="tag">WebRTC</span><span class="tag">SIP</span><span class="tag">XMPP</span><span class="tag">WebSocket</span><span class="tag">FCM</span><span class="tag">APNs</span>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="skill-group">
-              <h4><i class="bi bi-rocket-takeoff"></i>Delivery</h4>
-              <span class="tag">GitHub Actions</span><span class="tag">Fastlane</span><span class="tag">Codemagic</span><span class="tag">Firebase</span><span class="tag">AWS</span><span class="tag">REST APIs</span><span class="tag">Stripe &amp; PayPal</span>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="skill-group">
-              <h4><i class="bi bi-diagram-3"></i>Leadership &amp; AI</h4>
-              <span class="tag">Architecture</span><span class="tag">Team leadership</span><span class="tag">Mentoring</span><span class="tag">Code review</span><span class="tag">QA &amp; testing</span><span class="tag">LLM API integration</span><span class="tag">AI-assisted development</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Experience</h2>
-        <p>Full-time, contract and remote roles with teams in Bangladesh, Romania, Finland, Estonia and Japan.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Towhidur Rahman</h4>
-              <p><em>Lead Mobile Developer with 9+ years and 70+ apps across Android, iOS and Flutter. I take products from requirements to store release and keep them healthy in production, and I lead and mentor the teams that build them.</em></p>
-              <ul>
-                <li>Dhaka, Bangladesh</li>
-                <li>+8801951786930</li>
-                <li>simanto14feb@gmail.com</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <h3 class="resume-title">Professional Experience</h3>
-
-            <div class="resume-item">
-              <h4>Senior Software Engineer (Lead Mobile Developer)</h4>
-              <h5>May 2025 - Present</h5>
-              <p><em>InterCloud &middot; Dhaka, Bangladesh &middot; On-site</em></p>
-              <p>Lead mobile engineer for a next-generation VoIP and messaging app built for the company's existing 5.4M-user platform.</p>
-              <ul>
-                <li>Wrote about 90% of the codebase across native Android (Kotlin) and iOS (SwiftUI).</li>
-                <li>Delivered the MVP in 3 months: voice, video and PSTN calling (WebRTC, SIP) with native call handling (ConnectionService, CallKit, PushKit).</li>
-                <li>Kept call drops under 1% with automatic reconnection and improved audio quality 2x with a dedicated noise-cancellation library.</li>
-                <li>Maintains a 99.19% crash-free rate.</li>
-                <li>Built a full XMPP messaging layer: group chat, history, read and delivery receipts, push notifications and privacy controls.</li>
-                <li>Own API requirements and technical planning, and drive continuous feature releases.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Senior Mobile Developer</h4>
-              <h5>Sep 2025 - Mar 2026</h5>
-              <p><em>MediStack &middot; Contract &middot; Remote</em></p>
-              <p>HealthTech app for a clinical platform covering prescribing, patient care and diagnostics.</p>
-              <ul>
-                <li>Sole mobile developer: built the complete app for Android and iOS in Flutter in 6 months.</li>
-                <li>200+ screens across 20+ modules.</li>
-                <li>Owned architecture, UI, API integration and state management end to end.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Flutter Developer (Mobile Team Lead)</h4>
-              <h5>Sep 2024 - May 2025</h5>
-              <p><em>We Are The Nexts &middot; Full-time &middot; Remote</em></p>
-              <p>Led mobile development of a multi-city food delivery platform with 500+ restaurant partners.</p>
-              <ul>
-                <li>Shipped 9 apps in 6 months: customer, restaurant, rider and hub apps on Android and iOS, plus an MDM-provisioned system app for hub devices with built-in ticket and receipt printing.</li>
-                <li>Managed a cross-functional team of 20+ (mobile, backend, QA, design), directly leading up to 9 engineers.</li>
-                <li>Planned scope and roadmap with the Head of IT and backend lead, and coordinated delivery across teams.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Technical Lead</h4>
-              <h5>Jan 2024 - Jun 2024</h5>
-              <p><em>Revorium &middot; Tallinn, Estonia &middot; Contract &middot; Remote</em></p>
-              <p>Fintech platform for international payments.</p>
-              <ul>
-                <li>Led a cross-functional team of 8 (backend, web, mobile, PM, operations) and worked directly with the CEO and CTO on product direction and delivery targets.</li>
-                <li>Designed and launched in 3 months a cross-border payment platform that lets freelancers receive international payments and withdraw to local bank accounts.</li>
-                <li>Designed the system architecture and database schema, and defined and validated all APIs across backend, web and mobile.</li>
-                <li>Integrated Stripe and PayPal, managed AWS (EC2, S3, Route 53, IAM) and set up CI/CD with Codemagic.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="resume-item">
-              <h4>Senior Software Engineer (Lead Mobile Developer)</h4>
-              <h5>Nov 2022 - Oct 2024</h5>
-              <p><em>REEA Digital Limited &middot; Dhaka, Bangladesh &middot; Hybrid</em></p>
-              <p>Led mobile development on 16 client projects for European clients through REEA (Târgu Mureș, Romania), across Android, iOS, Flutter and React Native.</p>
-              <ul>
-                <li><strong>QSS:</strong> Flutter KPI tracker for a McDonald's franchise operator (10 locations, ~500 employees, Graz, Austria) with real-time sales, satisfaction and compliance metrics.</li>
-                <li><strong>MyEvent:</strong> event planning platform (Android, iOS, web) connecting clients with service providers.</li>
-                <li><strong>Sanasoft:</strong> doctor appointment booking app.</li>
-                <li><strong>Licitatia:</strong> online eTender platform for businesses and government entities.</li>
-                <li><strong>AM Pontaj:</strong> field force management app with geolocation.</li>
-                <li><strong>Sleep Tank:</strong> sleep tracking with Fitbit integration for IBR, Inc.</li>
-                <li><strong>Sirocco</strong> (premium retail e-commerce), <strong>Livrapp</strong> (React Native food delivery), <strong>Cartoon TV Plus</strong>, <strong>PSYnfo</strong> and <strong>Inkjet</strong> (AR tattoo preview).</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Lead Mobile Developer</h4>
-              <h5>Sep 2022 - Feb 2023</h5>
-              <p><em>AriSaf Tech &middot; Yokohama, Japan &middot; Contract &middot; Remote</em></p>
-              <ul>
-                <li>Built <strong>e-ONIGIRI英単語</strong> in Flutter for Iizuna Bookstore: 10,000 English words for junior high to university entrance exams, created with Professor Shigenori Tanaka.</li>
-                <li>Implemented in-app purchases and subscriptions, gamification, placement tests, flashcards, pronunciation help and progress tracking.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Mobile Developer &rarr; Senior &rarr; Lead Mobile Developer</h4>
-              <h5>Sep 2020 - Feb 2023</h5>
-              <p><em>Glostars &middot; Helsinki, Finland &middot; Part-time &middot; Remote</em></p>
-              <p>Photo-contest social app and Instagram competitor (50K+ downloads) on Android and iOS.</p>
-              <ul>
-                <li>Helped launch the app: photo uploads, filters and editing, profiles, mentions, direct messaging, notifications and explore.</li>
-                <li>Made app startup 10x faster and rebuilt the feed with infinite scrolling, stress-tested on 400,000 records.</li>
-                <li>Built the contest and anonymous voting system and multi-level comments.</li>
-                <li>Led the mobile team day to day near the end: code review, sprint priorities and releases.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Senior Software Engineer (Mobile)</h4>
-              <h5>Feb 2022 - Aug 2022</h5>
-              <p><em>BYSL Global Technology Group &middot; Dhaka, Bangladesh</em></p>
-              <ul>
-                <li>Built <strong>Waqt Al Salaah</strong> and <strong>BhaloNaki</strong> (Android &amp; iOS), and <strong>Quran Translation</strong> and <strong>Quran Mushaf</strong> (Flutter).</li>
-                <li>Project setup, requirement analysis and documentation, and mentoring junior developers.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Junior &rarr; Senior Android Developer</h4>
-              <h5>Jul 2019 - Jan 2022</h5>
-              <p><em>Simec System Ltd. &middot; Dhaka, Bangladesh</em></p>
-              <ul>
-                <li>Built <strong>HRMS</strong> (Ministry of Road Transport and Highways), <strong>DSS</strong> (Department of Social Services) and <strong>BTB</strong> (Bangladesh Tourism Board) apps.</li>
-                <li>Also built Simec Weather, Simec PDF Reader, Chaad Ride and 大東建託協力会 (Kentaku Kyoryokukai) for Daito, Japan.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Android Application Development Trainer</h4>
-              <h5>Jan 2020 - Nov 2021</h5>
-              <p><em>Northern University Bangladesh &middot; Part-time</em></p>
-              <ul>
-                <li>Taught OOP, core Java, Android and XML, and built apps with students.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>B.Sc. in Computer Science and Engineering</h4>
-              <h5>2016 - 2019</h5>
-              <p><em>Northern University Bangladesh</em></p>
-              <ul>
-                <li>Champion, Programming Contest (NUB CSE Fest 2019)</li>
-                <li>Champion, Project Showcase (NUB CSE Fest 2019), project: Hazira Khata</li>
-                <li>Champion, Project Showcase (UITS CSE Fest 2018), project: Apon</li>
-                <li>Champion, Project Showcase (NUB CSE Fest 2017), project: MiniDoctor</li>
-                <li>Runner-up, Programming Contest (NUB CSE Fest 2017)</li>
-                <li>Participated in ICPC and NCPC</li>
-              </ul>
-            </div><!-- End Resume Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Projects</h2>
-        <p>A selection of production apps I built or led, plus open-source showcase projects. Most client work lives in private repositories.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-prod">Production apps</li>
-            <li data-filter=".filter-oss">Open source</li>
-            <li data-filter=".filter-android">Android</li>
-            <li data-filter=".filter-ios">iOS</li>
-            <li data-filter=".filter-flutter">Flutter</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <!-- Production apps -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-android filter-ios">
-              <div class="project-card">
-                <div class="pc-head bg-voip"><i class="bi bi-telephone-fill"></i><div><h4>VoIP &amp; Messaging App</h4><small>Telecom &middot; Android &middot; iOS</small></div></div>
-                <div class="pc-body">
-                  <p>Calling and chat app for a 5.4M-user platform. WebRTC and SIP calling with CallKit and ConnectionService, XMPP messaging, under 1% call drops and 99.19% crash-free.</p>
-                  <span class="pc-link text-muted">In development</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-flutter">
-              <div class="project-card">
-                <div class="pc-head bg-food"><i class="bi bi-basket2-fill"></i><div><h4>Food Delivery Platform</h4><small>FoodTech &middot; Flutter</small></div></div>
-                <div class="pc-body">
-                  <p>9 apps in 6 months for a multi-city platform with 500+ restaurant partners: customer, restaurant, rider and hub apps, plus an MDM system app with receipt printing.</p>
-                  <span class="pc-link text-muted">Client work</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-flutter">
-              <div class="project-card">
-                <div class="pc-head bg-health"><i class="bi bi-heart-pulse-fill"></i><div><h4>MediStack</h4><small>HealthTech &middot; Flutter</small></div></div>
-                <div class="pc-body">
-                  <p>Clinical app for prescribing, patient care and diagnostics. Built solo in 6 months: 200+ screens across 20+ modules.</p>
-                  <span class="pc-link text-muted">Client work</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod">
-              <div class="project-card">
-                <div class="pc-head bg-fintech"><i class="bi bi-credit-card-2-front-fill"></i><div><h4>Revorium Payments</h4><small>Fintech &middot; Tech Lead</small></div></div>
-                <div class="pc-body">
-                  <p>Cross-border payment platform for freelancers, launched in 3 months. Architecture, database, APIs, Stripe and PayPal, AWS and Codemagic CI/CD.</p>
-                  <span class="pc-link text-muted">Client work</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-android filter-ios">
-              <div class="project-card">
-                <div class="pc-head bg-faith"><i class="bi bi-moon-stars-fill"></i><div><h4>Waqt Al Salaah</h4><small>Android &middot; iOS &middot; 100K+ downloads</small></div></div>
-                <div class="pc-body">
-                  <p>Prayer times, alarms and Qibla compass, rated 4.7 on Google Play.</p>
-                  <a class="pc-link" href="https://play.google.com/store/apps/details?id=com.bysl.waqt_al_salaah" target="_blank" rel="noopener">Google Play<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-android">
-              <div class="project-card">
-                <div class="pc-head bg-faith"><i class="bi bi-alarm-fill"></i><div><h4>Prayer Alarm</h4><small>Android &middot; 100K+ downloads</small></div></div>
-                <div class="pc-body">
-                  <p>Daily prayer alarm app for Android.</p>
-                  <a class="pc-link" href="https://play.google.com/store/apps/details?id=com.ilyn.prayer_alarm" target="_blank" rel="noopener">Google Play<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-flutter">
-              <div class="project-card">
-                <div class="pc-head bg-edu"><i class="bi bi-translate"></i><div><h4>e-ONIGIRI英単語</h4><small>EdTech &middot; Flutter &middot; Japan</small></div></div>
-                <div class="pc-body">
-                  <p>English vocabulary app for Iizuna Bookstore with 10,000 words, gamification, placement tests and subscriptions.</p>
-                  <a class="pc-link" href="https://play.google.com/store/apps/details?id=com.iizuna.onigiri" target="_blank" rel="noopener">Google Play<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-android filter-ios">
-              <div class="project-card">
-                <div class="pc-head bg-social"><i class="bi bi-camera-fill"></i><div><h4>Glostars</h4><small>Social &middot; Android &middot; iOS &middot; 50K+</small></div></div>
-                <div class="pc-body">
-                  <p>Photo-contest social platform. 10x faster startup, an infinite feed tested on 400,000 records, and anonymous contest voting.</p>
-                  <span class="pc-link text-muted">Finland</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-android filter-ios">
-              <div class="project-card">
-                <div class="pc-head bg-shop"><i class="bi bi-cup-hot-fill"></i><div><h4>Sirocco</h4><small>E-commerce &middot; Switzerland</small></div></div>
-                <div class="pc-body">
-                  <p>Premium retail e-commerce app for products from stores such as Globus Delicatessa and Sprüngli.</p>
-                  <a class="pc-link" href="https://play.google.com/store/apps/details?id=ch.sirocco.app" target="_blank" rel="noopener">Google Play<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-android filter-ios">
-              <div class="project-card">
-                <div class="pc-head bg-sleep"><i class="bi bi-moon-fill"></i><div><h4>Sleep Tank</h4><small>Health &middot; Android &middot; iOS</small></div></div>
-                <div class="pc-body">
-                  <p>Sleep pattern tracking with Fitbit integration, built for IBR, Inc.</p>
-                  <a class="pc-link" href="https://play.google.com/store/apps/details?id=org.ibrinc.sleeptank" target="_blank" rel="noopener">Google Play<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-flutter">
-              <div class="project-card">
-                <div class="pc-head bg-food"><i class="bi bi-graph-up-arrow"></i><div><h4>QSS</h4><small>Business &middot; Flutter &middot; Austria</small></div></div>
-                <div class="pc-body">
-                  <p>Real-time KPI tracker for a McDonald's franchise operator with 10 locations: sales, satisfaction and compliance metrics from POS data.</p>
-                  <span class="pc-link text-muted">Client work</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-prod filter-android">
-              <div class="project-card">
-                <div class="pc-head bg-gov"><i class="bi bi-bank2"></i><div><h4>Government Apps</h4><small>Android &middot; Bangladesh</small></div></div>
-                <div class="pc-body">
-                  <p>HRMS for the Ministry of Road Transport and Highways, DSS for the Department of Social Services, and the Bangladesh Tourism Board app.</p>
-                  <span class="pc-link text-muted">Simec System</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Open source -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-oss filter-android filter-ios">
-              <div class="project-card">
-                <div class="pc-head bg-oss"><i class="bi bi-github"></i><div><h4>kmp-news-reader</h4><small>Kotlin Multiplatform</small></div></div>
-                <div class="pc-body">
-                  <p>Hacker News reader for Android and iOS with shared UI in Compose Multiplatform, Ktor, Koin and MVI.</p>
-                  <a class="pc-link" href="https://github.com/trsimanto/kmp-news-reader" target="_blank" rel="noopener">View on GitHub<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-oss filter-ios">
-              <div class="project-card">
-                <div class="pc-head bg-oss"><i class="bi bi-github"></i><div><h4>swiftui-voip-call</h4><small>SwiftUI &middot; CallKit</small></div></div>
-                <div class="pc-body">
-                  <p>VoIP calling app with an explicit call state machine, CallKit, PushKit, async/await and XCTest.</p>
-                  <a class="pc-link" href="https://github.com/trsimanto/swiftui-voip-call" target="_blank" rel="noopener">View on GitHub<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-oss filter-flutter">
-              <div class="project-card">
-                <div class="pc-head bg-oss"><i class="bi bi-github"></i><div><h4>flutter-realtime-chat</h4><small>Flutter &middot; WebSocket</small></div></div>
-                <div class="pc-body">
-                  <p>Real-time chat with typing, read receipts, presence, offline outbox and auto-reconnect, plus a Dart server.</p>
-                  <a class="pc-link" href="https://github.com/trsimanto/flutter-realtime-chat" target="_blank" rel="noopener">View on GitHub<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-oss filter-android">
-              <div class="project-card">
-                <div class="pc-head bg-oss"><i class="bi bi-github"></i><div><h4>android-weather</h4><small>Jetpack Compose</small></div></div>
-                <div class="pc-body">
-                  <p>Offline-first weather app with MVI, Hilt, Room, Retrofit and WorkManager.</p>
-                  <a class="pc-link" href="https://github.com/trsimanto/android-weather" target="_blank" rel="noopener">View on GitHub<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-oss filter-flutter">
-              <div class="project-card">
-                <div class="pc-head bg-oss"><i class="bi bi-github"></i><div><h4>flutter-ai-assistant</h4><small>Flutter &middot; LLM</small></div></div>
-                <div class="pc-body">
-                  <p>AI chat app streaming answers token by token from OpenAI-compatible and Gemini models, with Clean Architecture and Bloc.</p>
-                  <a class="pc-link" href="https://github.com/trsimanto/flutter-ai-assistant" target="_blank" rel="noopener">View on GitHub<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-oss">
-              <div class="project-card">
-                <div class="pc-head bg-oss"><i class="bi bi-github"></i><div><h4>react-native-github-explorer</h4><small>React Native &middot; TypeScript</small></div></div>
-                <div class="pc-body">
-                  <p>GitHub browser built with Expo, React Query, Zustand and Jest.</p>
-                  <a class="pc-link" href="https://github.com/trsimanto/react-native-github-explorer" target="_blank" rel="noopener">View on GitHub<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>What I can take on for your team, from a single feature to a full product.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-android2"></i></div>
-            <div>
-              <h4 class="title">Native Android</h4>
-              <p class="description">Kotlin and Jetpack Compose apps with clean architecture, offline support and solid test coverage.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-apple"></i></div>
-            <div>
-              <h4 class="title">Native iOS</h4>
-              <p class="description">Swift and SwiftUI apps with smooth UI, Swift Concurrency and system integrations like CallKit and PushKit.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-layers"></i></div>
-            <div>
-              <h4 class="title">Flutter &amp; Kotlin Multiplatform</h4>
-              <p class="description">One codebase for Android and iOS without giving up performance or native features.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-broadcast"></i></div>
-            <div>
-              <h4 class="title">VoIP &amp; Real-time</h4>
-              <p class="description">Voice and video calling, chat and presence with WebRTC, SIP, XMPP and WebSocket.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-people"></i></div>
-            <div>
-              <h4 class="title">Technical Leadership</h4>
-              <p class="description">Architecture, API planning, roadmaps, code review and mentoring for mobile and cross-functional teams.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-rocket-takeoff"></i></div>
-            <div>
-              <h4 class="title">Release &amp; Quality</h4>
-              <p class="description">CI/CD, automated testing, store releases and production monitoring that keep crash-free rates high.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Recommendations</h2>
-        <p>What managers and teammates have said about working with me, from <a href="https://www.linkedin.com/in/trsimanto/details/recommendations/" target="_blank" rel="noopener">LinkedIn</a>.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 7000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>He led a cross-functional team of 8 across backend, web, mobile, PM and operations, and worked closely with me and the leadership team on product direction and delivery targets. We launched the MVP in 3 months. He takes real ownership and communicates clearly. I'd happily work with him again and recommend him for any lead mobile or tech lead role.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <div class="testimonial-avatar">MH</div>
-                <h3>Maruf H.</h3>
-                <h4>Revorium &middot; managed Towhid directly</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Towhid led mobile development on 16 client projects for our European clients, working closely with our Romania team. He takes full ownership of delivery, communicates clearly with clients and the team, and supports other developers. I'd recommend him for any lead mobile role.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <div class="testimonial-avatar">MK</div>
-                <h3>Murad Khan</h3>
-                <h4>CEO, REEA Digital Limited</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>He was one of the core developers for the app that is being used globally by so many users. His attention to detail while building a new feature makes the testing easier and the release trouble-free. When he has a task in hand, either he will deliver it to you in time or get back to you proactively with questions and roadblocks before the deadline.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <div class="testimonial-avatar">AA</div>
-                <h3>Md Anowarul Abedin</h3>
-                <h4>Glostars &middot; managed Towhid directly</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>As a mobile developer, Towhidur Rahman Simanto is highly skilled and knowledgeable in both Android and iOS platforms. Their ability to design, build and maintain complex applications on both platforms is truly impressive. He demonstrated excellent communication skills, a collaborative approach and consistently delivered high-quality results.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <div class="testimonial-avatar">MR</div>
-                <h3>Mahmudur Rahman</h3>
-                <h4>Mobile Application Development, BYSL Global Technology Group</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>He is well organized, diligent, and a fast learner. All these attributes were critical when developing Chaad-Ride, which involves reaching out to a lot of people. It was a pleasure to work with him.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <div class="testimonial-avatar">TI</div>
-                <h3>Md Tariqul Islam</h3>
-                <h4>Founder, ParitySoft AI &middot; managed Towhid directly</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>He has good knowledge and work experience with Kotlin. His can-do attitude distinguishes him from the crowd. I have enjoyed working with him and would recommend him for a team of high performance.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <div class="testimonial-avatar">MH</div>
-                <h3>Mobarok Hossain</h3>
-                <h4>Staff Software Engineer &middot; same team</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Open to remote Lead and Senior Mobile roles, and to hybrid or on-site roles in Dhaka. The fastest way to reach me is email or LinkedIn.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Location</h3>
-                  <p>Dhaka, Bangladesh (GMT+6)</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Me</h3>
-                  <p><a href="tel:+8801951786930">+8801951786930</a></p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Me</h3>
-                  <p><a href="mailto:simanto14feb@gmail.com">simanto14feb@gmail.com</a></p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                <i class="bi bi-linkedin flex-shrink-0"></i>
-                <div>
-                  <h3>LinkedIn</h3>
-                  <p><a href="https://www.linkedin.com/in/trsimanto" target="_blank" rel="noopener">linkedin.com/in/trsimanto</a></p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <iframe src="https://www.google.com/maps?q=Dhaka,Bangladesh&amp;z=11&amp;output=embed" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dhaka, Bangladesh"></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <p class="small text-muted mb-3">This opens your email app with the message filled in.</p>
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© 2026 <span>Copyright</span> <strong class="px-1 sitename">Towhidur Rahman</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
-      </div>
     </div>
+  </section>
 
-  </footer>
+  <section id="projects">
+    <h2><svg><use href="#i-grid"/></svg>Projects</h2>
+    <div class="filters" id="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="android">Android</button>
+      <button data-f="ios">iOS</button>
+      <button data-f="flutter">Flutter</button>
+      <button data-f="rn">React Native</button>
+    </div>
+    <div class="projects" id="projectList"></div>
+    <button class="btn showall" id="showAll"></button>
+  </section>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <section id="opensource">
+    <h2><svg><use href="#i-code"/></svg>Open source</h2>
+    <div class="projects" id="ossList"></div>
+  </section>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+  <section id="skills">
+    <h2><svg><use href="#i-tools"/></svg>Skills</h2>
+    <div class="skillgrid">
+      <div class="card"><h3>📱 Android</h3><div class="chips"><span class="chip">Kotlin</span><span class="chip">Java</span><span class="chip">Jetpack Compose</span><span class="chip">Coroutines &amp; Flow</span><span class="chip">Hilt</span><span class="chip">Room</span><span class="chip">MVVM / MVI</span><span class="chip">ConnectionService</span></div></div>
+      <div class="card"><h3>🍎 iOS</h3><div class="chips"><span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">UIKit</span><span class="chip">Combine</span><span class="chip">async/await</span><span class="chip">CallKit</span><span class="chip">PushKit</span></div></div>
+      <div class="card"><h3>🧩 Cross-platform</h3><div class="chips"><span class="chip">Flutter &amp; Dart</span><span class="chip">Bloc</span><span class="chip">Riverpod</span><span class="chip">GetX</span><span class="chip">Kotlin Multiplatform</span><span class="chip">React Native</span></div></div>
+      <div class="card"><h3>📡 Real-time</h3><div class="chips"><span class="chip">WebRTC</span><span class="chip">SIP</span><span class="chip">XMPP</span><span class="chip">WebSocket</span><span class="chip">FCM</span><span class="chip">APNs</span></div></div>
+      <div class="card"><h3>🚀 Delivery</h3><div class="chips"><span class="chip">GitHub Actions</span><span class="chip">Fastlane</span><span class="chip">Codemagic</span><span class="chip">Firebase</span><span class="chip">AWS</span><span class="chip">Stripe &amp; PayPal</span></div></div>
+      <div class="card"><h3>🧭 Leadership &amp; AI</h3><div class="chips"><span class="chip">Architecture</span><span class="chip">Team leadership</span><span class="chip">Mentoring</span><span class="chip">Code review</span><span class="chip">LLM integration</span><span class="chip">AI-assisted dev</span></div></div>
+    </div>
+  </section>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <section id="recommendations">
+    <h2><svg><use href="#i-quote"/></svg>Recommendations</h2>
+    <div class="recs">
+      <div class="card rec"><blockquote>He led a cross-functional team of 8 across backend, web, mobile, PM and operations, and worked closely with me and the leadership team on product direction and delivery targets. We launched the MVP in 3 months. He takes real ownership and communicates clearly.</blockquote><div class="by"><span class="ini">MH</span><div><b>Maruf H.</b><span>Revorium · managed Towhid directly</span></div></div></div>
+      <div class="card rec"><blockquote>Towhid led mobile development on 16 client projects for our European clients, working closely with our Romania team. He takes full ownership of delivery, communicates clearly with clients and the team, and supports other developers.</blockquote><div class="by"><span class="ini">MK</span><div><b>Murad Khan</b><span>CEO, REEA Digital Limited</span></div></div></div>
+      <div class="card rec"><blockquote>His attention to detail while building a new feature makes the testing easier and the release trouble-free. When he has a task in hand, either he will deliver it to you in time or get back to you proactively with questions and roadblocks before the deadline.</blockquote><div class="by"><span class="ini">AA</span><div><b>Md Anowarul Abedin</b><span>Glostars · managed Towhid directly</span></div></div></div>
+      <div class="card rec"><blockquote>As a mobile developer, Towhidur Rahman Simanto is highly skilled and knowledgeable in both Android and iOS platforms. He demonstrated excellent communication skills, a collaborative approach and consistently delivered high-quality results.</blockquote><div class="by"><span class="ini">MR</span><div><b>Mahmudur Rahman</b><span>Mobile Application Development, BYSL Global Technology Group</span></div></div></div>
+      <div class="card rec"><blockquote>He is well organized, diligent, and a fast learner. All these attributes were critical when developing Chaad-Ride, which involves reaching out to a lot of people.</blockquote><div class="by"><span class="ini">TI</span><div><b>Md Tariqul Islam</b><span>Founder, ParitySoft AI · managed Towhid directly</span></div></div></div>
+    </div>
+    <p style="margin-top:12px;font-size:13.5px"><a href="https://www.linkedin.com/in/trsimanto/details/recommendations/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">See all recommendations on LinkedIn →</a></p>
+  </section>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- shown under 1180px where the right rail is hidden -->
+  <section class="rail-inline" id="rail-inline"></section>
 
-  <script>
-    // GitHub Pages can't run PHP, so the contact form opens the visitor's email app instead.
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const f = e.target;
-      const body = f.message.value + '\n\n' + f.name.value + ' <' + f.email.value + '>';
-      window.location.href = 'mailto:simanto14feb@gmail.com'
-        + '?subject=' + encodeURIComponent(f.subject.value)
-        + '&body=' + encodeURIComponent(body);
-    });
-  </script>
+  <section id="contact">
+    <h2><svg><use href="#i-mail"/></svg>Contact</h2>
+    <p style="color:var(--muted);margin-bottom:14px">Open to remote Lead and Senior Mobile roles, and to hybrid or on-site roles in Dhaka.</p>
+    <div class="contact-grid">
+      <a class="card" href="mailto:simanto14feb@gmail.com"><span class="li icon-btn"><svg><use href="#i-mail"/></svg></span><div><span>Email</span><b>simanto14feb@gmail.com</b></div></a>
+      <a class="card" href="https://www.linkedin.com/in/trsimanto" target="_blank" rel="noopener"><span class="li icon-btn"><svg><use href="#i-in"/></svg></span><div><span>LinkedIn</span><b>in/trsimanto</b></div></a>
+      <a class="card" href="https://github.com/trsimanto" target="_blank" rel="noopener"><span class="li icon-btn"><svg><use href="#i-gh"/></svg></span><div><span>GitHub</span><b>@trsimanto</b></div></a>
+      <a class="card" href="tel:+8801951786930"><span class="li icon-btn"><svg><use href="#i-phone"/></svg></span><div><span>Phone</span><b>+880 1951-786930</b></div></a>
+    </div>
+    <form class="card" id="contactForm">
+      <div class="row2"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Your email" required></div>
+      <input name="subject" placeholder="Subject" required>
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><button class="btn primary" type="submit">Send message</button><span style="color:var(--muted);font-size:12.5px">Opens your email app with the message filled in.</span></div>
+    </form>
+  </section>
 
+  <footer>© 2026 Towhidur Rahman · Built with plain HTML, CSS and JavaScript · Hosted on GitHub Pages</footer>
+</main>
+
+<!-- RIGHT -->
+<aside class="rail" id="rail">
+  <div class="card open-card">
+    <h3><span class="dot"></span>Open to new opportunities</h3>
+    <p>Lead Mobile Developer with 9+ years in Flutter, Android and iOS. Looking for remote Lead or Senior Mobile roles, especially VoIP, real-time, fintech and healthtech.</p>
+    <a class="btn primary" href="#contact">Let's talk</a>
+  </div>
+  <div class="card">
+    <h3>Find me on</h3>
+    <div class="links" style="margin-top:8px">
+      <a href="https://github.com/trsimanto" target="_blank" rel="noopener"><span class="li"><svg><use href="#i-gh"/></svg></span><div><b>GitHub</b><span>@trsimanto</span></div><svg class="arr"><use href="#i-arrow"/></svg></a>
+      <a href="https://www.linkedin.com/in/trsimanto" target="_blank" rel="noopener"><span class="li"><svg><use href="#i-in"/></svg></span><div><b>LinkedIn</b><span>in/trsimanto</span></div><svg class="arr"><use href="#i-arrow"/></svg></a>
+      <a href="mailto:simanto14feb@gmail.com"><span class="li"><svg><use href="#i-mail"/></svg></span><div><b>Email</b><span>simanto14feb@gmail.com</span></div><svg class="arr"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+  <div class="card now">
+    <h3>⚡ Currently</h3>
+    <p>Leading a VoIP and messaging app at InterCloud: WebRTC, SIP and XMPP on native Android and iOS.</p>
+  </div>
+  <div class="card">
+    <h3>📄 Resume</h3>
+    <p style="color:var(--muted);font-size:13.5px;margin:6px 0 12px">One-page overview of my experience, skills and education.</p>
+    <a class="btn" href="assets/Towhidur_Rahman_CV.pdf" download><svg><use href="#i-file"/></svg>Download CV</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- mobile bottom bar -->
+<nav class="mbar">
+  <a href="#profile"><svg><use href="#i-user"/></svg>Profile</a>
+  <a href="#experience"><svg><use href="#i-brief"/></svg>Resume</a>
+  <a href="#projects"><svg><use href="#i-grid"/></svg>Work</a>
+  <a href="#contact"><svg><use href="#i-mail"/></svg>Contact</a>
+  <button class="theme-toggle" aria-label="Toggle theme"><svg><use href="#i-sun"/></svg>Theme</button>
+</nav>
+
+<script>
+const PROJECTS = [
+  {t:"VoIP & Messaging App", s:"Telecom · Android · iOS", d:"Calling and chat with WebRTC and SIP, CallKit and ConnectionService, and XMPP messaging. Under 1% call drops, 99.19% crash-free.", f:"android ios", e:"📞", c:"#0f766e", foot:"InterCloud"},
+  {t:"Food Delivery Platform", s:"FoodTech · Flutter", d:"9 apps in 6 months for 500+ restaurant partners: customer, restaurant, rider and hub apps, plus an MDM system app with receipt printing.", f:"flutter", e:"🍔", c:"#c2410c", foot:"We Are The Nexts"},
+  {t:"MediStack", s:"HealthTech · Flutter", d:"Clinical app for prescribing, patient care and diagnostics. Built solo: 200+ screens across 20+ modules.", f:"flutter", e:"🏥", c:"#0369a1", foot:"Contract"},
+  {t:"Revorium Payments", s:"Fintech · Tech Lead", d:"Cross-border payment platform for freelancers: architecture, APIs, Stripe and PayPal, AWS and Codemagic CI/CD.", f:"", e:"💳", c:"#4338ca", foot:"Estonia"},
+  {t:"Waqt Al Salaah", s:"Android · iOS · 100K+", d:"Prayer times, alarms and Qibla compass, rated 4.7 on Google Play.", f:"android ios", e:"🕌", c:"#166534", link:"https://play.google.com/store/apps/details?id=com.bysl.waqt_al_salaah"},
+  {t:"Prayer Alarm", s:"Android · 100K+", d:"Daily prayer alarm app for Android.", f:"android", e:"⏰", c:"#15803d", link:"https://play.google.com/store/apps/details?id=com.ilyn.prayer_alarm"},
+  {t:"e-ONIGIRI英単語", s:"EdTech · Flutter · Japan", d:"English vocabulary app for Iizuna Shoten: 10,000 words, quizzes, placement tests and subscriptions.", f:"flutter", e:"🍙", c:"#a16207", link:"https://play.google.com/store/apps/details?id=com.iizuna.onigiri"},
+  {t:"Glostars", s:"Social · Android · iOS · 50K+", d:"Photo-contest social platform. 10x faster startup, a feed tested on 400,000 records, anonymous contest voting.", f:"android ios flutter", e:"📸", c:"#be185d", foot:"Finland"},
+  {t:"Sirocco", s:"E-commerce · Switzerland", d:"Premium retail app for products from stores such as Globus Delicatessa and Sprüngli.", f:"android ios", e:"☕", c:"#92400e", link:"https://play.google.com/store/apps/details?id=ch.sirocco.app"},
+  {t:"Sleep Tank", s:"Health · Android · iOS", d:"Sleep pattern tracking with Fitbit integration, built for IBR, Inc.", f:"android ios", e:"😴", c:"#4338ca", link:"https://play.google.com/store/apps/details?id=org.ibrinc.sleeptank"},
+  {t:"QSS", s:"Business · Flutter · Austria", d:"Real-time KPI tracker for a McDonald's franchise operator with 10 locations: sales, satisfaction and compliance from POS data.", f:"flutter", e:"📊", c:"#b45309", foot:"REEA"},
+  {t:"MyEvent", s:"Events · Android · iOS · Web", d:"Marketplace connecting clients with restaurants, photographers, DJs and beauty services for events.", f:"android ios", e:"🎉", c:"#9333ea", foot:"REEA"},
+  {t:"Cartoon TV Plus", s:"Streaming · Android · iOS · Web", d:"Netflix-style cartoon streaming platform for children with a large animated library.", f:"android ios", e:"📺", c:"#db2777", foot:"REEA"},
+  {t:"Licitatia", s:"GovTech · eTender", d:"Tender platform where businesses and government entities post and bid on public tenders.", f:"android ios", e:"🏛️", c:"#1d4ed8", foot:"REEA"},
+  {t:"Sanasoft", s:"HealthTech · Android · iOS", d:"Doctor appointment booking for patients and healthcare providers.", f:"android ios", e:"🩺", c:"#0284c7", foot:"REEA"},
+  {t:"AM Pontaj", s:"Workforce · Geolocation", d:"Field force management that tracks work activity and location for accountability.", f:"android ios", e:"📍", c:"#0f766e", foot:"REEA"},
+  {t:"Livrapp", s:"FoodTech · React Native", d:"Food delivery platform in Romania with separate apps for customers and drivers.", f:"rn", e:"🛵", c:"#ea580c", foot:"REEA"},
+  {t:"Inkjet", s:"AR · Flutter", d:"Augmented reality app to preview tattoos and body art on yourself.", f:"flutter", e:"🖋️", c:"#6d28d9", foot:"REEA"},
+  {t:"PSYnfo", s:"Wellbeing · Flutter", d:"Takes user input to surface insights into psychological wellbeing.", f:"flutter", e:"🧠", c:"#7c3aed", foot:"REEA"},
+  {t:"BhaloNaki", s:"Social commerce · Android · iOS", d:"Peer-to-peer product reviews with barcode and QR scanning, upvotes, points and gift rewards.", f:"android ios", e:"🛍️", c:"#c2410c", foot:"BYSL"},
+  {t:"Quran Mushaf & Translation", s:"Flutter", d:"Read and study the Quran with translations in multiple languages, search and bookmarks.", f:"flutter", e:"📖", c:"#166534", foot:"BYSL"},
+  {t:"Chaad Ride", s:"Mobility · Android · iOS", d:"Bangladesh's first motorcycle rental service: booking, live trip tracking, damage reporting and SSLCommerz payments.", f:"android ios", e:"🏍️", c:"#0e7490", foot:"Simec System"},
+  {t:"Government Apps", s:"Android · Bangladesh", d:"HRMS for the Ministry of Road Transport and Highways, DSS for Social Services, and the Bangladesh Tourism Board app.", f:"android", e:"🏢", c:"#1e3a8a", foot:"Simec System"},
+  {t:"大東建託協力会", s:"Enterprise · Android · Japan", d:"Member app for Daito Kentaku's cooperative: news, push notifications, newsletters and a schedule calendar.", f:"android", e:"🏗️", c:"#334155", foot:"Simec System"},
+  {t:"Hazira Khata", s:"EdTech · Android · 100K+", d:"Bangla school-management app for attendance, exams and routines, rated 4.4. Champion project at NUB CSE Fest 2019.", f:"android", e:"🎒", c:"#a16207", foot:"Teamz Lab"},
+  {t:"Simec Weather", s:"Utility · Android", d:"Real-time weather forecast for the selected location.", f:"android", e:"⛅", c:"#0369a1", foot:"Simec System"}
+];
+const OSS = [
+  {t:"kmp-news-reader", s:"Kotlin Multiplatform", d:"Hacker News reader for Android and iOS with shared Compose Multiplatform UI, Ktor, Koin and MVI."},
+  {t:"swiftui-voip-call", s:"SwiftUI · CallKit", d:"VoIP calling app with an explicit call state machine, CallKit, PushKit, async/await and XCTest."},
+  {t:"flutter-realtime-chat", s:"Flutter · WebSocket", d:"Real-time chat with typing, read receipts, presence, offline outbox and auto-reconnect, plus a Dart server."},
+  {t:"android-weather", s:"Jetpack Compose", d:"Offline-first weather app with MVI, Hilt, Room, Retrofit and WorkManager."},
+  {t:"flutter-ai-assistant", s:"Flutter · LLM", d:"AI chat that streams answers from OpenAI-compatible and Gemini models, with Clean Architecture and Bloc."},
+  {t:"react-native-github-explorer", s:"React Native · TypeScript", d:"GitHub browser built with Expo, React Query, Zustand and Jest."}
+];
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const card = p => `<article class="card proj" data-f="${p.f||''}">
+  <div class="ph"><span class="pi" style="background:${p.c}">${p.e}</span><div><h3>${esc(p.t)}</h3><small>${esc(p.s)}</small></div></div>
+  <p>${esc(p.d)}</p>
+  <div class="pf">${p.link?`<a href="${p.link}" target="_blank" rel="noopener">Google Play ↗</a>`:`<span>${esc(p.foot||'')}</span>`}</div>
+</article>`;
+document.getElementById('projectList').innerHTML = PROJECTS.map(card).join('');
+document.getElementById('ossList').innerHTML = OSS.map(o => `<article class="card proj">
+  <div class="ph"><span class="pi" style="background:#24292f"><svg style="width:20px;height:20px"><use href="#i-gh"/></svg></span><div><h3>${o.t}</h3><small>${o.s}</small></div></div>
+  <p>${o.d}</p>
+  <div class="pf"><a href="https://github.com/trsimanto/${o.t}" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+</article>`).join('');
+
+// project filters + "show all"
+const FIRST = 10; let expanded = false, current = 'all';
+const showAll = document.getElementById('showAll');
+function applyProjects(){
+  let n = 0;
+  document.querySelectorAll('#projectList .proj').forEach(p => {
+    const match = current === 'all' || p.dataset.f.split(' ').includes(current);
+    p.classList.toggle('hide', !match);
+    p.classList.toggle('fold', match && !expanded && n >= FIRST);
+    if (match) n++;
+  });
+  showAll.style.display = n > FIRST ? '' : 'none';
+  showAll.textContent = expanded ? 'Show less' : 'Show all ' + n + ' projects';
+}
+document.getElementById('filters').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  document.querySelectorAll('#filters button').forEach(x => x.classList.toggle('on', x === b));
+  current = b.dataset.f; expanded = false; applyProjects();
+});
+showAll.addEventListener('click', () => { expanded = !expanded; applyProjects(); if (!expanded) document.getElementById('projects').scrollIntoView(); });
+applyProjects();
+
+// read more
+const about = document.getElementById('aboutText'), more = document.getElementById('moreBtn');
+more.addEventListener('click', () => { const c = about.classList.toggle('collapsed'); more.textContent = c ? 'Read more ⌄' : 'Show less ⌃'; });
+
+// Dhaka clock
+function tick(){
+  const now = new Date();
+  const t = now.toLocaleTimeString('en-US',{timeZone:'Asia/Dhaka',hour:'numeric',minute:'2-digit'});
+  document.querySelectorAll('.now-time').forEach(el => el.textContent = t);
+  const h = +now.toLocaleString('en-US',{timeZone:'Asia/Dhaka',hour:'numeric',hour12:false});
+  document.getElementById('daynight').textContent = (h >= 6 && h < 18) ? '☀️ Daytime in Dhaka' : '🌙 Night in Dhaka';
+}
+tick(); setInterval(tick, 30000);
+
+// theme
+const root = document.documentElement;
+function setTheme(t){ root.dataset.theme = t; document.querySelectorAll('.theme-toggle use').forEach(u => u.setAttribute('href', t === 'dark' ? '#i-sun' : '#i-moon')); try{localStorage.setItem('theme', t)}catch(e){} }
+let saved; try{ saved = localStorage.getItem('theme') }catch(e){}
+setTheme(saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+document.querySelectorAll('.theme-toggle').forEach(b => b.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark')));
+
+// copy right-rail cards into the page on narrower screens
+document.getElementById('rail-inline').innerHTML = document.getElementById('rail').innerHTML.replace(/class="card/g,'style="margin-bottom:12px" class="card');
+
+// active nav + tabs on scroll
+const ids = ['profile','about','highlights','experience','projects','opensource','skills','recommendations','contact'];
+const navMap = {profile:'profile',about:'profile',highlights:'profile',experience:'experience',projects:'projects',opensource:'opensource',skills:'skills',recommendations:'recommendations',contact:'contact'};
+const tabMap = {about:'about',highlights:'about',experience:'experience',projects:'projects',opensource:'projects'};
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if (!en.isIntersecting) return;
+  const id = en.target.id;
+  document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + navMap[id]));
+  if (tabMap[id]) document.querySelectorAll('#tabs a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + tabMap[id]));
+}), {rootMargin:'-40% 0px -55% 0px'});
+ids.forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
+
+// contact form -> email app (GitHub Pages has no backend)
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  location.href = 'mailto:simanto14feb@gmail.com?subject=' + encodeURIComponent(f.subject.value) +
+    '&body=' + encodeURIComponent(f.message.value + '\n\n' + f.name.value + ' <' + f.email.value + '>');
+});
+</script>
 </body>
-
 </html>
